@@ -1,0 +1,11 @@
+http://w3.unpocodetodo.info/utiles/regex-ejemplos.php?type=cc
+https://programacion.net/articulo/25_expresiones_regulares_que_todo_programador_web_deberia_conocer_1213
+https://yarrblogcr.wordpress.com/2020/06/23/expresion-regular-para-validar-la-estructura-de-una-cuenta-iban-en-javascript/
+https://www.bbvaapimarket.com/es/mundo-api/expresiones-regulares-en-programacion-ejemplos-practicos-para-javascript/
+https://wise.com/es/swift-codes/bic-swift-code-checker
+https://www.iban.es/codigo-swift.html
+https://www.bbva.es/finanzas-vistazo/ef/cuentas/codigo-swift-bic.html
+https://carontestudio.com/blog/como-recargar-una-pagina-con-javascript/#:~:text=Lo%20primero%20que%20debes%20saber,pulsar%20el%20bot%C3%B3n%20de%20refrescar
+https://www.anerbarrena.com/atributo-required-html5-4798/
+https://es.stackoverflow.com/questions/16436/comprobar-input-vac%C3%ADo
+https://voximplant.com/blog/javascript-regular-expression-para-verificacion-de-numeros-de-telefono
