@@ -19,54 +19,56 @@
                     <!-- Grupo: Usuario -->
                     <div class="control" id="g_usuario">
                         <input class="controls" type="text" name="nombres_usuario" id="formulario"
-                            placeholder="Usuario">
+                            placeholder="Usuario" required>
                     </div>
                     <!-- Grupo: dni -->
                     <div class="control">
                         <input class="controls" type="text" name="dni" id="formulario"
-                            placeholder="dni">
+                            placeholder="dni" required>
                     </div>
                     <!-- Grupo: nombre -->
                     <div class="control">
-                        <input class="controls" type="text" name="nombres" id="formulario" placeholder=" Nombre">
+                        <input class="controls" type="text" name="nombres" id="formulario" placeholder=" Nombre" required>
                     </div>
                      <!-- Grupo: apellido-->          
                     <div class="control">
-                        <input class="controls" type="text" name="apellidos" id="formulario" placeholder=" Apellido">
+                        <input class="controls" type="text" name="apellidos" id="formulario" placeholder=" Apellido" required>
                     </div>
                      <!-- Grupo: correo-->       
                     <div class="control">
-                        <input class="controls" type="email" name="correo" id="formulario" placeholder=" Correo">
+                        <input class="controls" type="email" name="correo" id="formulario" placeholder=" Correo" required>
                     </div>
                      <!-- Grupo: contraseña-->   
                     <div class="control">
-                        <input class="controls" type="text" name="contraseña" id="formulario" placeholder="Contraseña">
-                    </div>
-                    <!-- Grupo: Tfono-->
-                    <div class="control">
-                        <input class="controls" type="text" name="telefono" id="formulario" placeholder="Telefono">
+                        <input class="controls" type="password" name="contraseña" id="formulario" placeholder="Contraseña" required>
                     </div>
                     <!-- Grupo: repetir contraseña-->
                     <div class="control">
-                        <input class="controls" type="text" name="repetir_contraseña" id="formulario"
-                            placeholder=" Repetir contraseña">
+                        <input class="controls" type="password" name="repetir_contraseña" id="formulario"
+                            placeholder=" Repetir contraseña" required>
                     </div>
+                    <!-- Grupo: Tfono-->
+                    <div class="control">
+                        <input class="controls" type="text" name="telefono" id="formulario" placeholder="Telefono" required>
+                    </div>
+                    
                 <!-- Grupo: iban-->
                     <div class="control">
-                        <input class="controls" type="text" name="IBAN" id="formulario" placeholder="Iban">
+                        <input class="controls" type="text" name="IBAN" id="formulario" placeholder="Iban" required>
                     </div>
                 <!-- Grupo: swift-->
                     <div class="control">
-                        <input class="controls" type="text" name="SWIFT" id="formulario" placeholder="Swift">
+                        <input class="controls" type="text" name="SWIFT" id="formulario" placeholder="Swift" required>
                     </div>
                 <!-- Grupo: nac-->
                     <div>
                         <input class="controls" type="date" name="fecha_nacimiento" id="formulario"
-                            placeholder="Fecha nacimiento">
+                            placeholder="Fecha nacimiento" required>
                     </div >
                     <br>
+                    <p class="warnings" id="warnings "> </p>
                     <div class="boton">
-                        <input class="botons" type="submit" value="Registrar" id="boton">
+                        <input class="botons" type="submit" value="Registrar" id="boton" required>
                     </div>    
                         <p>Estoy de acuerdo con <a href="https://www.epicgames.com/site/es-ES/tos?lang=es-ES">Terminos y
                                 Condiciones</a></p>
@@ -76,7 +78,7 @@
                         <p><a
                                 href="https://www.epicgames.com/id/login?productName=epic-games&redirectUrl=https%3A%2F%2Fwww.epicgames.com%2Fsite%2F&client_id=5a6fcd3b82e04f8fa0065253835c5221&noHostRedirect=true">Iniciar Sesion</a></p>
                     </div>
-                    <p class="warnings" id="warnings "> </p>
+                  
                 </form>
                 <script src="/js/main.js" type="text/javascript"></script>
             </div>

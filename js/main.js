@@ -1,15 +1,20 @@
 
 
-
-const formulario = document.getElementById('form-register');
-const input = document.querySelectorAll('#formulario');
+const nombre = document.getElementsByName("Nombre")
+const email = document.getElementsByName("correo")
+const pass = document.getElementsByName("contraseña")
+const pass_1 = document.getElementsByName("repetir_contraseña")
+const form = document.getElementsByName("form")
+const dni = document.getElementsByName("dni")
+const parrafo = document.getElementById("warnings")
 
 const expresiones = {
-	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^.{4,12}$/, // 4 a 12 digitos.
-	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+	reg_usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+	reg_nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	reg_password: /^.{9,12}$/, // 4 a 12 digitos.
+	reg_correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	reg_telefono: /^\d{9}$/, // 7 a 14 numeros.
+  reg_dni : /^\d{8}[a-zA-Z]$/,
 }
 
 const campos = {
@@ -20,76 +25,33 @@ const campos = {
 	telefono: false
 }
 
-var warnings=""
-input.forEach((input) => {
-    const validarcampos = (e) => {
-      var warnings=""
-      var entrar=false
-      switch (e.target.name){
-        case "nombres_usuario":
-        if (expresiones.usuario.test(e.target.value)) {
-            warnings+="el usuario no es valido"
-            entrar=true
-        }
-        
-        break;
-        case "dni":
-        
-        break;
-        case "nombres":
-        
-        break;
-        case "apellidos":
-        
-        break;
-        case "correo":
-        
-        break;
-        case "contraseña":
-        
-        break;
-        case "repetir_contraseña":
-        
-        break;
-        
-        case "IBAN":
-        
-        break;
-        
-        case "SWIFT":
-        
-        break;
-        case "telefono":
-        
-        break;
-        
-        case "fecha_nacimiento":
-        
-        break;
-      }
-      if (entrar) {
-        parrafo.innerHTML = warnings
-      }
-    }
-    input.addEventListener('keyup', validarcampos)
-    input.addEventListener('blur', validarcampos)
-})
-formulario.addEventListener('submit', (e) => {
-    e.preventDefault();
+formulario.addEventListener("submit", e=>{
+  let warnings = ""
+  let entrar = false
+  if (expresiones.usuario.test(e.target.value)) {
+    warnings += `El nombre no es valido <br>`
+    entrar = true
+  }
+
 })
 
+if(entrar){
+  parrafo.innerHTML = warnings
+}else{
+  parrafo.innerHTML = "Enviado"
+}
 
-/*
-function validaDni() {
+
+/*function validaDni() {
     var dni = document.getElementById("dni").value;
     var numero
     var letr
     var letra
-    var expresion_regular_dni
+    var reg_dni
    
-    expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+    
    
-    if(expresion_regular_dni.test (dni) == true){
+    if(reg_dni.test (dni) == true){
        numero = dni.substr(0,dni.length-1);
        letr = dni.substr(dni.length-1,1);
        alert(letr)
@@ -104,4 +66,5 @@ function validaDni() {
     }else{
        alert('Dni erroneo, formato no válido');
      }
-  }*/
+  }
+*/
