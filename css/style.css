@@ -58,3 +58,10 @@ body{
     padding:5px;
     
 }
+.warnings{
+    width: 20epx;
+    text-align: center;
+    margin: auto;
+    color: #806AB3;
+    padding-top: 28px
+}
