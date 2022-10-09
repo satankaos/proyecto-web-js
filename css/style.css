@@ -45,14 +45,15 @@ body{
     border-radius: 1ch;
 }
 .control{
-    margin: auto;
-    padding:5px;
+    margin: 1px;
+    padding:1px;
 }
 .boton{
     width: 100%;
     max-width: 50%;
     margin: 0 auto;
 }
+
 #fecha_nacimiento{
     margin-left: 15%;
     padding:5px;
@@ -62,10 +63,66 @@ body{
     width: 20epx;
     text-align: center;
     margin: auto;
-    color: #806AB3;
+  
     padding-top: 28px
 }
+
 p{
+    margin: 5PX;
+    padding: 5PX;
     text-align: center;
-    color: aliceblue;
+    color: #806AB3;
+    margin-bottom: 0;
+}
+/* ********************************** */
+.form-control label {
+    display: inline-block;
+    margin-bottom: 1px;
+   
+}
+
+.form-control input {
+    border: none;
+    background-color: #f0f0f0;
+    display: block;
+    font-family: inherit;
+
+
+        
+}
+.form-control, input:focus {
+    outline: none;
+}
+
+.form-control.ok input {
+    border: 0.1px solid;
+    border-color: #08ffc8;
+}
+.form-control.falla input {
+    border: 0.1px solid;
+    border-color: #fe5f55;
+}
+
+#formulario button {
+    background: #fd4f00;
+    border:1px solid #fd5f00;
+    border-radius: 2px;
+    color: #f6f6e9;
+    display: block;
+  
+  
+ 
+}
+.form-control p {
+    visibility: hidden;
+    position: relative;
+    font-size: small;
+ 
+    text-align: center;
+}
+
+.form-control.falla p {
+    visibility: visible;
+    color:#e74c3c;
+    margin: 5px;
 }
