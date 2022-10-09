@@ -52,6 +52,7 @@ body{
     width: 100%;
     max-width: 50%;
     margin: 0 auto;
+    
 }
 
 #fecha_nacimiento{
@@ -125,4 +126,7 @@ p{
     visibility: visible;
     color:#e74c3c;
     margin: 5px;
+}
+#boton1{
+    float:left;
 }
