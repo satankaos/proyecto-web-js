@@ -19,7 +19,7 @@ body{
     background-color: hsl(0,0%,12.55%);
     border-radius: 5px;
 }
-.form-register{
+.form{
     background-color: hsl(0,0%,12.55%);
 }
 .contform{
@@ -64,4 +64,8 @@ body{
     margin: auto;
     color: #806AB3;
     padding-top: 28px
+}
+p{
+    text-align: center;
+    color: aliceblue;
 }
