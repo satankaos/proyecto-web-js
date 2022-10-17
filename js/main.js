@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
   const fecha_nacimiento = document.getElementById('fecha_nacimiento')
   const registrar=document.getElementById('boton')
   function validar() {
-    window.open("./html/validaido.html", "_self");        
+    window.open("./html/validaido.html", "_self");
 }
   form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -22,11 +22,11 @@ window.addEventListener('load', () => {
     if (validaCampos()==true){
       validar()
     }
-   
+
   })
- 
+
   const validaCampos = () => {
-    //cap elementos 
+    //cap elementos
     const usuarioValor = usuario.value.trim()
     const nombreValor = nombre.value.trim()
     const dniValor = dni.value.trim()
@@ -47,7 +47,7 @@ window.addEventListener('load', () => {
   }else{
       validaOk(usuario)
     }
-    var reget = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ 
+    var reget = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
     if (!correoValor) {
       validaFalla(correo, 'Campo vacío')
     } else if (!correoValor.match(reget)) {
@@ -86,7 +86,7 @@ window.addEventListener('load', () => {
     }
     if (!dniValor) {
       validaDni(dniValor)
-      
+
     } else {
       validaOk(dni)
     }
@@ -101,7 +101,7 @@ window.addEventListener('load', () => {
 
 
 
-  
+
 
     var rexte2 = /^(0034|\+34)?(\d\d\d)-? ?(\d\d)-? ?(\d)-? ?(\d)-? ?(\d\d)$/;
 
@@ -139,7 +139,7 @@ window.addEventListener('load', () => {
     }
 
   }
-  
+
   const validaFalla = (input, msje) => {
     const formControl = input.parentElement
     const aviso = formControl.querySelector('p')
@@ -152,31 +152,69 @@ window.addEventListener('load', () => {
     formControl.className = 'form-control ok'
   }
 
-  
 
-  function validaDni(dniVAlor) {
-    var numero
-    var letr
-    var letra
-    var expresion_regular_dniVAlor
-   
-    expresion_regular_dniVAlor = /^\d{8}[a-zA-Z]$/;
-   
-    if(expresion_regular_dniVAlor.test (dniVAlor) == true){
-       numero = dniVAlor.substr(0,dniVAlor.length-1);
-       letr = dniVAlor.substr(dniVAlor.length-1,1);
-       numero = numero % 23;
-       letra='TRWAGMYFPDXBNJZSQVHLCKET';
-       letra=letra.substring(numero,numero+1);
-      if (letra!=letr.toUpperCase()) {
-         validaFalla(dni,'Dni erroneo, la letra del NIF no se corresponde');
-       }else{
-         validaOk(dni)
-       }
-    }else{
-      validaFalla(dni,'Dni erroneo, formato no válido');
-     }
-  }
+
+//   function validaDni(dniVAlor) {
+//     var numero
+//     var letr
+//     var letra
+//     var expresion_regular_dniVAlor
+
+//     expresion_regular_dniVAlor = /^\d{8}[a-zA-Z]$/;
+
+//     if(expresion_regular_dniVAlor.test (dniVAlor) == true){
+//        numero = dniVAlor.substr(0,dniVAlor.length-1);
+//        letr = dniVAlor.substr(dniVAlor.length-1,1);
+//        numero = numero % 23;
+//        letra='TRWAGMYFPDXBNJZSQVHLCKET';
+//        letra=letra.substring(numero,numero+1);
+//       if (letra!=letr.toUpperCase()) {
+//          validaFalla(dni,'Dni erroneo, la letra del NIF no se corresponde');
+//        }else{
+//          validaOk(dni)
+//        }
+//     }else{
+//       validaFalla(dni,'Dni erroneo, formato no válido');
+//      }
+//   }
+function validaDni(dniVAlor)
+{
+    var lockup = 'TRWAGMYFPDXBNJZSQVHLCKE';
+    var valueDni = dni.substr(0,dni.length-1);
+    var letra = dni.substr(dni.length-1,1).toUpperCase();
  
+    /* el dni viene vacio, le damos como bueno*/
+    if (dni.length == 0) {
+        return true;
+    } else {
+        /* El dni no trae ni espacion ni guiones */
+        if ((dni.indexOf(' ') == 0) || (dni.indexOf('-') == 0)) {
+            alert ("El DNI/CIF no puede tener ni espacion ni guiones");
+            document.getElementById("nif").focus();
+            return false;
+        }
+        /* El DNI tiene 9 posiciones */
+        if (dni.length < 9) {
+            alert ("El DNI/CIF debe tener tener 9 caracteres");
+            document.getElementById("nif").focus();
+            return false;
+        }
+        /* Si la primera posicion es uuna letra, no se valida */
+        if (isNaN(dni.substr(0,1))) {
+            return true;
+        }else{
+            var corresponde =lockup.charAt(valueDni % 23);
+            if (corresponde == letra ) {
+                return true;
+            } else {
+                alert("La letra del DNI esta mal, debe ser " && corresponde);
+                document.getElementById("nif").focus();
+                return false;
+            }
+        }
+    }
+ 
+}
 
 })
+
