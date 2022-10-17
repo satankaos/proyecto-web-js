@@ -11,11 +11,20 @@ window.addEventListener('load', () => {
   const IBAN = document.getElementById('IBAN')
   const SWIFT = document.getElementById('SWIFT')
   const fecha_nacimiento = document.getElementById('fecha_nacimiento')
-
+  const registrar=document.getElementById('boton')
+  function validar() {
+    window.open("./html/validaido.html", "_self");        
+}
   form.addEventListener('submit', (e) => {
     e.preventDefault()
     validaCampos()
+
+    if (validaCampos()==true){
+      validar()
+    }
+   
   })
+ 
   const validaCampos = () => {
     //cap elementos 
     const usuarioValor = usuario.value.trim()
@@ -168,6 +177,6 @@ window.addEventListener('load', () => {
       validaFalla(dni,'Dni erroneo, formato no válido');
      }
   }
-  
+ 
 
 })
