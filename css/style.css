@@ -67,7 +67,7 @@ body{
   
     padding-top: 28px
 }
-
+daOk
 p{
     margin: 5PX;
     padding: 5PX;
@@ -125,6 +125,11 @@ p{
 .form-control.falla p {
     visibility: visible;
     color:#e74c3c;
+    margin: 5px;
+}
+.form-control.ok p {
+    visibility: visible;
+    color:#08ffc8;
     margin: 5px;
 }
 #boton1{
