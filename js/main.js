@@ -23,7 +23,7 @@ form.addEventListener('reset', (e) => {
 })
   const validaCampos = () => {
     //cap elementos
-    var OK=false
+     OK=true
     const usuarioValor = usuario.value.trim()
     const nombreValor = nombre.value.trim()
     const dniValor = dni.value.trim()
@@ -45,7 +45,7 @@ form.addEventListener('reset', (e) => {
       OK=false
     }else{
       validaOk(usuario,"usuario  valido")
-      OK=true
+      
     }
 
     var reget = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
@@ -57,7 +57,7 @@ form.addEventListener('reset', (e) => {
       OK=false
     } else {
       validaOk(correo,"correo valido")
-      OK=true
+      
     }
     //validando campo password
     const er = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/
@@ -72,7 +72,7 @@ form.addEventListener('reset', (e) => {
       OK=false
     } else {
       validaOk(contraseña,"contraseña valida") 
-      OK=true
+      
     }
     //validando campo password Confirmación
     if (!c2Valor) {
@@ -82,7 +82,7 @@ form.addEventListener('reset', (e) => {
       OK=false
     } else {
       validaOk(c2)
-      OK=true
+      
        
     }
 
@@ -95,7 +95,7 @@ form.addEventListener('reset', (e) => {
       OK=false
     }else{
       validaOk(nombre,"nombre valido")
-      OK=true
+      
        
     }
     if (!apellidoValor) {
@@ -104,7 +104,7 @@ form.addEventListener('reset', (e) => {
       OK=false
     } else {
       validaOk(apellido," ") 
-      OK=true
+      
     }
     var rexte2 = /^(0034|\+34)?(\d\d\d)-? ?(\d\d)-? ?(\d)-? ?(\d)-? ?(\d\d)$/;
 
@@ -117,7 +117,7 @@ form.addEventListener('reset', (e) => {
       OK=false
     } else {
       validaOk(telefono,"telefono valido")
-      OK=true
+      
     };
     var rexib = /([a-zA-Z]{2})\s*\t*(\d{2})\s*\t*(\d{4})\s*\t*(\d{4})\s*\t*(\d{2})\s*\t*(\d{10})/g
     if (!ibanValor) {
@@ -126,7 +126,7 @@ form.addEventListener('reset', (e) => {
       validaFalla(IBAN, "formato incorrecto")
     } else {
       validaOk(IBAN,"iban valido")
-      OK=true
+      
     }
       var regsw = /([a-zA-Z]{4})([a-zA-Z]{2})(([2-9a-zA-Z]{1})([0-9a-np-zA-NP-Z]{1}))((([0-9a-wy-zA-WY-Z]{1})([0-9a-zA-Z]{2}))|([xX]{3})|)/g
     if (!SWIFTValor) {
@@ -136,7 +136,7 @@ form.addEventListener('reset', (e) => {
       validaFalla(SWIFT, "swift no valido")
     }else{
       validaOk(SWIFT,"swift  valido")
-      OK=true
+      
     }
 
     if (!fnValor) {
@@ -145,22 +145,20 @@ form.addEventListener('reset', (e) => {
       OK=false
     } else {
       validaOk(fecha_nacimiento,"fecha  valida")
-      OK=true
+      
     }
     if (!dniValor) {
 
       validaFalla(dniValor, "dni no valido")
       OK=false
     } else {
-      if (!validaDni(dniValor)) {
+      if (validaDni(dniValor)) {
         validaOk(dni,"dni correcto")
-        OK=true
+        
       }
       
     }
-    if (!OK) {
-       esOk()
-  }
+   
   }
 
 
@@ -169,8 +167,8 @@ form.addEventListener('reset', (e) => {
      var letr
      var letra
      var expresion_regular_dniVAlor
-     expresion_regular_dniVAlor = /[0-9]{7,8}[A-Z]/;
-     //expresion_regular_dniVAlor = /(^([0-9]{8,8}\-[A-Z])|^)$/;
+     expresion_regular_dniVAlor = /^\d{8}[A-Z]$/;
+    
 
      if(expresion_regular_dniVAlor.test (dniVAlor) == true){
       letra='TRWAGMYFPDXBNJZSQVHLCKET';  
@@ -183,7 +181,6 @@ form.addEventListener('reset', (e) => {
           OK=false
         }else{
           validaOk(dni)
-          OK=true
         }
      }else{
        validaFalla(dni,'Dni erroneo, formato no válido');
@@ -210,7 +207,7 @@ form.addEventListener('reset', (e) => {
                  OK=false
               }else{
               validaOk(dni,"dni correcto")
-              OK=true
+              
             }
          }else{
           validaFalla(dni,'Dni erroneo, formato no válido');
@@ -218,11 +215,15 @@ form.addEventListener('reset', (e) => {
              }
       
  }
+ 
  form.addEventListener('submit', (e) => {
-  e.preventDefault()
-  validaCampos()
-
+  e.preventDefault() //quito comportameinto por defecto
+  validaCampos()//valido los campos 
+  if (OK==true) {
+    esOk()};//saco mensaje si todo esta bien balidado
 })
+
+/** lo uso para cambiar el color de el input y mandar el mensaje  */
  const validaFalla = (input, msje) => {
   const formControl = input.parentElement
   const aviso = formControl.querySelector('p')
@@ -230,6 +231,7 @@ form.addEventListener('reset', (e) => {
 
   formControl.className = 'form-control falla'
 }
+/** igual pero cuando es correcto  */
 const validaOk = (input,msje) => {
   const formControl = input.parentElement
   const aviso = formControl.querySelector('p')
@@ -238,10 +240,7 @@ const validaOk = (input,msje) => {
 }
 
 function  esOk() {
-    setTimeout(()=>{ alert("Enviado");},2000)
- 
-  
-  
+    setTimeout(()=>{ alert("Enviado");},1000) 
 }
 })
 
